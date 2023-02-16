@@ -17,17 +17,28 @@ const {Given, When, Then} = require('@cucumber/cucumber');
 // Steps for the first learning outcome
 // ----------------------------------------------------------------------------
 
-// Given("a fibonacci sequence initialized to {int}", function(value) {
-//     this.fibonacci.init(value);
-// });
-
 Given("a fibonacci sequence initialized to {int}", function(value) {
     try {
         this.fibonacci.init(value);
     } catch {
-        this.itThrew()
-    }  
+        this.itThrew();
+    }
 });
+
+// My own
+
+// Given("a fibonacci sequence initialized to 2584", function(value) {
+//     this.fibonacci.init(value);
+// }); DON'T NEED AS FUNCTION ABOVE CALLS INT
+
+// Given("a fibonacci sequence initialized to 7", function(value) {
+    // try {
+    //     this.fibonacci.init(value);
+    // } catch {
+    //     this.itThrew();
+    // }
+// });
+// End
 
 When("a fibonacci sequence is started", function() {
     // Nothing to do, as done by the custom world
@@ -37,19 +48,12 @@ When("the sequence is skipped {int} time(s)", function(value) {
     this.fibonacci.skip(value);
 });
 
-
 // My own 
-// When("a fibonacci sequence is initialized to {int}", function(value) {
-//     try {
-//         this.fibonacci.init(value);
-//     } catch {
-//         this.itThrew()
-//     }
-// });
-
-When("the sequence is skipped", function() {
-    this.fibonacci.skip();
-});
+When("the next function is called 5 times", function(value) {
+    for(let i = 0; i < value; i++) {
+        this.fibonacci.next();
+    }
+})
 // End
 
 
@@ -63,8 +67,16 @@ Then("the state should be {string}", function(value) {
 
 
 // My own
-Then("it should throw an exception", function() {
-    assert(this.hasThrown());
+Then("the next number should be 4181", function(value) {
+    assert(this.fibonacci.next());
+});
+
+Then("it should throw an exception", function(value) {
+    assert(this.hasThrown())
+});
+
+Then("the next number should be 21", function(value) {
+    assert(this.fibonacci.next());
 });
 
 // end 

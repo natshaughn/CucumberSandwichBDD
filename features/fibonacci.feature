@@ -20,16 +20,19 @@ Feature: Fibonacci number sequences
     Then the next number should be 4181
 
   Scenario: Throw when initialized with an ilegitimate fibonacci number
-    When a fibonacci sequence initialized to 7
+    Given a fibonacci sequence initialized to 7
     Then it should throw an exception
 
-  # Scenario: Sequence is initialized and skipped and skipped again
-  #   Given a fibonacci sequence initialized to 2
-  #   When the sequence is skipped
-  #   And the sequence is skipped
-  #   Then the state should be "The current number is 3"
-  #   And the state should be "The current number is 5"
+  Scenario: Call the next function five times
+    Given a fibonacci sequence is initialized to 2
+    When the next function is called 5 times
+    Then the next number should be 3
+    And the next number should be 5
+    And the next number should be 8
+    And the next number should be 13
+    And the next number should be 21
 
-  # Scenario: Sequence is initialized with a minus
-  #   Given a fibonacci sequence initialized to -1
-  #   Then it should throw an exception
+
+  Scenario: Sequence is initialized with a minus
+    Given a fibonacci sequence initialized to -1
+    Then it should throw an exception

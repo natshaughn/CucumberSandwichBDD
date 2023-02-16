@@ -75,8 +75,5 @@ Then("it should throw an exception", function(value) {
     assert(this.hasThrown())
 });
 
-Then("the next number should be 21", function(value) {
-    assert(this.fibonacci.next());
-});
 
 // end 

@@ -26,18 +26,7 @@ Given("a fibonacci sequence initialized to {int}", function(value) {
 });
 
 // My own
-
-// Given("a fibonacci sequence initialized to 2584", function(value) {
-//     this.fibonacci.init(value);
-// }); DON'T NEED AS FUNCTION ABOVE CALLS INT
-
-// Given("a fibonacci sequence initialized to 7", function(value) {
-    // try {
-    //     this.fibonacci.init(value);
-    // } catch {
-    //     this.itThrew();
-    // }
-// });
+// Did not need my own Given's as the code above had {int}.
 // End
 
 When("a fibonacci sequence is started", function() {
@@ -49,11 +38,11 @@ When("the sequence is skipped {int} time(s)", function(value) {
 });
 
 // My own 
-When("the next function is called 5 times", function(value) {
+When("the next function is called {int} times", function(value) {
     for(let i = 0; i < value; i++) {
         this.fibonacci.next();
     }
-})
+});
 // End
 
 
@@ -67,13 +56,7 @@ Then("the state should be {string}", function(value) {
 
 
 // My own
-Then("the next number should be 4181", function(value) {
-    assert(this.fibonacci.next());
-});
-
-Then("it should throw an exception", function(value) {
+Then("it should throw an exception", function() {
     assert(this.hasThrown())
 });
-
-
 // end 

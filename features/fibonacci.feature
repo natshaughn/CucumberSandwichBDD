@@ -24,9 +24,9 @@ Feature: Fibonacci number sequences
     Then it should throw an exception
 
   Scenario: Call the next function five times
-    Given a fibonacci sequence is initialized to 2
+    Given a fibonacci sequence initialized to 2
     When the next function is called 5 times
-    Then the next number should be 21
+    Then the next number should be 34
    
   Scenario: Sequence is initialized with a minus
     Given a fibonacci sequence initialized to -1
